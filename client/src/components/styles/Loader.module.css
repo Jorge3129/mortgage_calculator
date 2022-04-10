@@ -1,0 +1,41 @@
+
+.loader_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    --loader-color: var(--blue-card-text-hover);
+}
+
+
+.loader {
+    --loader-size: 4rem;
+    height: var(--loader-size);
+    width: var(--loader-size);
+    border-radius: 50%;
+    border: 0.3rem solid var(--loader-color);
+    background: conic-gradient(var(--loader-color), var(--white));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: spin 2s linear infinite;
+    opacity: 0.24;
+}
+
+.loader_inside {
+    --inside-size: calc(82%);
+    border-radius: 50%;
+    background-color: var(--loader-color);
+    width: var(--inside-size);
+    height: var(--inside-size);
+}
+
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

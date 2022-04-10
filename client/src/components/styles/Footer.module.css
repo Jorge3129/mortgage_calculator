@@ -1,0 +1,10 @@
+.footer {
+    justify-self: flex-end;
+    /*flex: 0;*/
+    padding: 1.3rem 0;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    background-color: var(--gray-blue);
+    color: var(--white);
+}

@@ -1,0 +1,60 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+}
+
+:root {
+    --white: #fff;
+    --black: #000;
+    --gray-dark: #383838;
+    --gray-blue-dark: #1949b0;
+    --gray-blue: #476ec4;
+    --blue-light: #cadffa;
+    /* FOOTER */
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+#root {
+    height: 100%;
+    width: 100%;
+}
+
+.App {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* For sticky nav bar */
+.sticky {
+    position: fixed;
+    top: 0;
+}
+
+.main {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3em;
+}
+
+
+.page_title {
+    margin: 2rem;
+}

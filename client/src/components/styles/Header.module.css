@@ -1,0 +1,33 @@
+.container {
+    width: 100%;
+    color: var(--white);
+    background-color: var(--black);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8rem;
+    background-image: linear-gradient(var(--black), var(--gray-blue-dark));
+}
+
+.icon_title_container {
+    z-index: 100;
+}
+
+.icon_container {
+    padding: 1rem;
+}
+
+.icon {
+    transform: scale(1.8);
+}
+
+.title {
+    font-size: 1.4rem;
+}

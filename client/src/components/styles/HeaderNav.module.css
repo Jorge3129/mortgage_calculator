@@ -1,0 +1,36 @@
+
+.container {
+    width: 100%;
+    background-color: var(--black);
+    justify-self: flex-end;
+    overflow: hidden;
+    max-height: fit-content;
+    /*box-shadow: 0 -0.6rem 1.5rem var(--gray-blue);*/
+    --link-padding: 0.9rem;
+    z-index: 100;
+}
+
+.link_list {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+}
+
+.link_item {
+    height: min-content;
+    padding: var(--link-padding) 0;
+    background-color: var(--black);
+}
+
+.link_text {
+    color: var(--white);
+    text-decoration: none;
+    padding: var(--link-padding) 2rem;
+    font-size: 1.2rem;
+}
+
+.link_item:hover {
+    cursor: pointer;
+    background-color: var(--gray-dark);
+}
+

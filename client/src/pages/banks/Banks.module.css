@@ -1,0 +1,110 @@
+.card_list {
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+:root {
+    --card-border-width: 0.15rem;
+    /* BLUE */
+    --blue-card-border: #b3c8e3;
+    --blue-card-back: #f7fafc;
+    --blue-card-border-hover: #3286f0;
+    --blue-card-back-hover: #e8f2ff;
+    --blue-card-text: #607999;
+    --blue-card-text-hover: #1a66c7;
+}
+
+.card {
+    width: fit-content;
+    padding: 0.6rem 1.3rem 1rem;
+    margin: 0.5rem;
+    border-radius: 1rem;
+    text-align: left;
+    /* DISPLAY */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* COLORS */
+    background-color: var(--blue-card-back);
+    border: var(--card-border-width) solid var(--blue-card-border);
+}
+
+.card:hover {
+    cursor: pointer;
+    background-color: var(--blue-card-back-hover);
+    border: var(--card-border-width) solid var(--blue-card-border-hover);
+}
+
+/* BANK NAME */
+.card_title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--blue-card-text-hover);
+    padding: 0.2rem 0;
+}
+
+/* USER OPTIONS ON HOVER */
+.options {
+    --delete-offset: 1rem;
+    position: absolute;
+    top: var(--delete-offset);
+    right: var(--delete-offset);
+    display: none;
+}
+
+.card:hover .options {
+    display: flex;
+    flex-direction: row;
+}
+
+.option {
+    padding: 0.3rem;
+    color: var(--blue-card-text);
+}
+
+.option:hover {
+    color: var(--blue-card-text-hover);
+}
+
+/* LIST OF INFORMATION ABOUT BANK */
+.field_list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.field {
+    padding: 0.2rem 0.4rem;
+}
+
+.key {
+    font-size: 0.98rem;
+    font-weight: 600;
+}
+
+.value {
+    font-size: 0.96rem;
+    font-weight: 500;
+    color: var(--blue-card-text);
+}
+
+.card:hover .value {
+    color: var(--blue-card-text-hover);
+}
+
+@media screen and (max-width: 1000px) {
+    .card_list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .card_list {
+        display: flex;
+        flex-direction: column;
+    }
+}
