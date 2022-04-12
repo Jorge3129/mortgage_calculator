@@ -1,5 +1,5 @@
-import {db} from "../config/db"
 import {Request, Response} from "express";
+import {connection, db, query} from "../config/connection";
 
 const getBanksQuery = `
     SELECT *
@@ -19,32 +19,24 @@ const deleteBankQuery = `
 class BankController {
 
     static async getBanks(req: Request, res: Response) {
-        const {userId} = req.params;
-        await db.query(
-            getBanksQuery, [userId],
-            (err, result) => {
-                if (err) {
-                    console.log(err);
-                    return res.status(404).json({error: true});
-                }
-                console.log(result);
-                res.json(result)
-            })
+        try {
+            const {userId} = req.params;
+            const result = await query(getBanksQuery, [userId]);
+            res.json(result);
+        } catch (e) {
+            res.status(404).json({error: e});
+        }
     }
 
     static async postBank(req: Request, res: Response) {
-        console.log('/banks POST Request');
-        const {name, interestRate, maxLoan, minDownPayment, loanTerm, userId} = req.body;
-        await db.query(
-            postBankQuery, [name, interestRate, maxLoan, minDownPayment, loanTerm, userId],
-            (err, result) => {
-                if (err) {
-                    console.log(err);
-                    return res.status(404).json({error: true});
-                }
-                console.log(result);
-                res.json(result)
-            })
+        try {
+            const {name, interestRate, maxLoan, minDownPayment, loanTerm, userId} = req.body;
+            const result = query(postBankQuery,
+                [name, interestRate, maxLoan, minDownPayment, loanTerm, userId])
+            res.json(result);
+        } catch (e) {
+            res.status(404).json({error: e});
+        }
     }
 
     static async updateBank(req: Request, res: Response) {
@@ -52,16 +44,13 @@ class BankController {
     }
 
     static async deleteBank(req: Request, res: Response) {
-        const {bankId} = req.params;
-        await db.query(
-            deleteBankQuery, [bankId],
-            (err, result) => {
-                if (err) {
-                    console.log(err);
-                    return res.status(404).json({error: true});
-                }
-                res.json(result)
-            })
+        try {
+            const {bankId} = req.params;
+            const result = query(deleteBankQuery, [bankId])
+            res.json(result);
+        } catch (e) {
+            res.status(404).json({error: e});
+        }
     }
 }
 

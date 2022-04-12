@@ -1,9 +1,9 @@
 import 'dotenv/config'
-import DB from "./controllers/db.controller"
 import bankRouter from "./routes/bank.router";
-import userRouter from "./routes/user.router";
+import userRouter from "./routes/auth.router";
 import cors from 'cors'
 import express, {Request, Response} from "express";
+import {setupDB} from "./controllers/db.controller";
 
 const app = express();
 const PORT = process.env.PORT || 9001;
@@ -13,13 +13,13 @@ app.use(cors({
     origin: "*"
 }))
 app.use('/banks', bankRouter);
-app.use('/user', userRouter);
+app.use('/auth', userRouter);
 
 app.get("/", (req: Request, res: Response) => {
     res.send("HI!!!");
 });
 
 (async () => {
-    await DB.setup();
+    await setupDB();
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 })();

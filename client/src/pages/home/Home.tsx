@@ -2,7 +2,7 @@ import React from 'react';
 
 const HomePage = () => {
     return (
-        <div>
+        <div className={"main"}>
             {new Array(9)
                 .fill(0)
                 .map((el, ix) =>

@@ -1,9 +1,8 @@
 import {combineReducers} from "redux";
-import bankReducer from '../pages/banks/banks.reducer'
+import banks from '../pages/banks/banks.reducer'
+import user from '../pages/banks/banks.reducer'
 
-const rootReducer = combineReducers({
-    banks: bankReducer,
-})
+const rootReducer = combineReducers({banks, user})
 
 export type RootState = ReturnType<typeof rootReducer>
 

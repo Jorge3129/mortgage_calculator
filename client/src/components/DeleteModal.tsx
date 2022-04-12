@@ -2,19 +2,20 @@ import React, {FC, MouseEvent} from 'react';
 import {Bank} from "../types/types";
 import st from './styles/Modal.module.css'
 import {useDispatch} from "react-redux";
-import {deleteBank, setUserAction} from "../pages/banks/banks.reducer";
+import {deleteBank, setBankAction} from "../pages/banks/banks.reducer";
+import Button from "./Button";
 
 interface IDeleteModal {
-    item: Bank;
+    bank?: Bank;
 }
 
-const DeleteModal: FC<IDeleteModal> = ({item}) => {
+const DeleteModal: FC<IDeleteModal> = ({bank}) => {
 
     const dispatch = useDispatch();
 
     const cancel = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        dispatch(setUserAction());
+        dispatch(setBankAction());
     }
 
     const confirm = (e: MouseEvent<HTMLButtonElement>) => {
@@ -22,16 +23,27 @@ const DeleteModal: FC<IDeleteModal> = ({item}) => {
         dispatch(deleteBank());
     }
 
+    if (!bank) return null;
+
     return (
         <div className={st.background}>
-            <div className={st.modal}>
-                <form className={st.form}>
-                    <h3>Delete</h3>
-                    Are you sure you want to delete bank {item.name}?
-                    <button type="submit" onClick={confirm}>Confirm</button>
-                    <button type="submit" onClick={cancel}>Cancel</button>
-                </form>
-            </div>
+            <form className={st.modal}>
+                <h3 className={st.title}>Delete bank</h3>
+                <ul className={st.field_list}>
+                    <li className={st.field}>
+                        Are you sure you want to delete bank&nbsp;
+                        <span className={st.bank_name}>{bank.name}</span>?
+                    </li>
+                </ul>
+                <div className={st.button_list}>
+                    <Button onClick={confirm} className={st.button}>
+                        OK
+                    </Button>
+                    <Button onClick={cancel} className={st.button} light={true}>
+                        Cancel
+                    </Button>
+                </div>
+            </form>
         </div>
     );
 };

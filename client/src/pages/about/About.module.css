@@ -1,0 +1,133 @@
+.main_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    --item-margin: 0.5em;
+}
+
+.paragraph_container {
+    border-radius: var(--border-radius);
+    background-color: var(--blue-light);
+    margin: var(--item-margin);
+    padding: 0.6rem 1.3rem 1rem;
+    transition: all 0.3s ease;
+    width: calc(100% - calc(var(--item-margin) * 2));
+}
+
+.paragraph {
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 400;
+    padding: 0.3rem 1rem;
+}
+
+.tech_main_title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0.3rem 0;
+}
+
+.tech_stack_list {
+    padding: 1rem 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-self: center;
+}
+
+.tech_stack {
+    padding: 0.6rem 1.3rem 1rem;
+    margin: var(--item-margin);
+    border-radius: 1rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* COLORS */
+    background-color: var(--blue-card-back);
+    border: var(--card-border);
+}
+
+.tech_item_list {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tech_link {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: var(--black);
+}
+
+.tech_icon {
+    --tech-size: 2rem;
+    width: var(--tech-size);
+    height: var(--tech-size);
+}
+
+.tech_title {
+    padding: 0 1rem;
+    font-size: 1.1rem;
+}
+
+.tech_item:hover {
+    cursor: pointer;
+}
+
+.tech_item:hover .tech_title {
+    color: var(--blue-card-text-hover);
+    text-decoration: underline;
+}
+
+.link {
+    font-weight: 500;
+    color: var(--blue-card-text-hover);
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 1000px) {
+
+    .paragraph_container {
+        width: 32rem;
+    }
+
+    .tech_stack_list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    .paragraph_container {
+        width: 22rem;
+    }
+
+    .tech_stack_list {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .paragraph_container {
+        width: 16rem;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .paragraph_container {
+        width: 12rem;
+        word-wrap: break-word;
+    }
+}

@@ -3,24 +3,25 @@
     /*flex-direction: column;*/
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    height: fit-content;
 }
 
 :root {
     --card-border-width: 0.15rem;
     /* BLUE */
     --blue-card-border: #b3c8e3;
-    --blue-card-back: #f7fafc;
+    --blue-card-back: #e9f1f7;
     --blue-card-border-hover: #3286f0;
     --blue-card-back-hover: #e8f2ff;
     --blue-card-text: #607999;
     --blue-card-text-hover: #1a66c7;
+    --card-border: var(--card-border-width) solid var(--blue-card-border);
 }
 
 .card {
     width: fit-content;
     padding: 0.6rem 1.3rem 1rem;
-    margin: 0.5rem;
-    border-radius: 1rem;
+    margin: 0.5rem  0.8rem;
     text-align: left;
     /* DISPLAY */
     position: relative;
@@ -29,7 +30,8 @@
     justify-content: space-between;
     /* COLORS */
     background-color: var(--blue-card-back);
-    border: var(--card-border-width) solid var(--blue-card-border);
+    border: var(--card-border);
+    border-radius: 1rem;
 }
 
 .card:hover {

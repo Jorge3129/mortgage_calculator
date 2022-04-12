@@ -20,6 +20,7 @@
     height: min-content;
     padding: var(--link-padding) 0;
     background-color: var(--black);
+    position: relative;
 }
 
 .link_text {
@@ -31,6 +32,6 @@
 
 .link_item:hover {
     cursor: pointer;
-    background-color: var(--gray-dark);
+    background-color: var(--link-hover);
 }
 

@@ -6,25 +6,23 @@ import HomePage from "./pages/home/Home";
 import Header from "./components/Header"
 import BankPage from "./pages/banks/BankPage";
 import Footer from "./components/Footer";
-import MortgagePage from "./pages/mortgage/MortgagePage";
+import Page from "./pages/calculator/Page";
+import AboutPage from "./pages/about/AboutPage";
 
 const App: FC = () => {
     return (
-        <div className="App">
-            <Router>
+        <Router>
+            <div className="App">
                 <Header/>
                 <Routes>
                     <Route path="/" element={<HomePage/>}/>
-                </Routes>
-                <Routes>
                     <Route path="/banks" element={<BankPage/>}/>
-                </Routes>
-                <Routes>
-                    <Route path="/mortgage" element={<MortgagePage/>}/>
+                    <Route path="/calculator" element={<Page/>}/>
+                    <Route path="/about" element={<AboutPage/>}/>
                 </Routes>
                 <Footer/>
-            </Router>
-        </div>
+            </div>
+        </Router>
     );
 }
 

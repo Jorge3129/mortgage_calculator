@@ -3,19 +3,20 @@ import {Bank} from "../../types/types";
 import {RootState} from "../../redux/rootReducer";
 import API from "./bank.api";
 
-interface UserAction {
+interface BankAction {
     type: "delete" | "create" | "edit";
     bankId: number;
+    bank?: Bank;
 }
 
-interface bankState {
+interface BankState {
     banks: Bank[]
     loading: boolean
     error: boolean
-    userAction?: UserAction;
+    bankAction?: BankAction;
 }
 
-const initialState: bankState = {
+const initialState: BankState = {
     banks: [],
     loading: false,
     error: false,
@@ -32,18 +33,22 @@ const bankSlice = createSlice({
             state.banks = payload;
         },
         deleteBank: (state, {payload}: PayloadAction<undefined>) => {
-            const userAction = state.userAction;
-            if (!userAction) return state;
-            state.banks = state.banks.filter(bank => bank.bankId !== userAction.bankId);
-            state.userAction = undefined;
+            const bankAction = state.bankAction;
+            if (!bankAction) return state;
+            state.banks = state.banks.filter(bank => bank.bankId !== bankAction.bankId);
+            state.bankAction = undefined;
         },
-        setUserAction: (state, {payload}: PayloadAction<UserAction | undefined>) => {
-            state.userAction = payload;
+        setBankAction: (state, {payload}: PayloadAction<BankAction | undefined>) => {
+            let bankAction = payload;
+            const bank = state.banks.find(bank => bank.bankId === payload?.bankId);
+            if (!bank || !bankAction) return state.bankAction = undefined;
+            bankAction = {...bankAction, bank};
+            state.bankAction = bankAction;
         },
     }
 })
 
-export const {setLoading, setBanks, setUserAction, deleteBank} = bankSlice.actions;
+export const {setLoading, setBanks, setBankAction, deleteBank} = bankSlice.actions;
 
 export const bankThunk = createAsyncThunk('/banks/get',
     async (id: number, thunkApi) => {

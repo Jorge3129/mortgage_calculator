@@ -1,9 +1,12 @@
 import {useEffect, useRef} from "react";
 
+/**
+ *  This hook is used to make navbar sticky when it reaches the top of the page
+ */
 export const useSticky = () => {
 
     const nav = useRef<HTMLElement | null>(null);
-    const navOffset = useRef<number>();
+    const navOffset = useRef<number>(); // stores the initial top offset of the navbar
 
     const onScroll = () => {
         const navBar = nav.current;

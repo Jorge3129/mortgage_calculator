@@ -10,10 +10,22 @@
     --white: #fff;
     --black: #000;
     --gray-dark: #383838;
+    --gray: #6e6e6e;
+    --gray-light: #ced6e0;
+    --gray-light-hover: #a3b5d1;
+
+    /* BLUE */
     --gray-blue-dark: #1949b0;
+    --blue-deep: #296dff;
+    --blue: #3d8bff;
+    --blue-bright: #8fbfff;
     --gray-blue: #476ec4;
     --blue-light: #cadffa;
+    --border-radius: 1rem;
     /* FOOTER */
+    /*NAVBAR*/
+    --link-hover: #182c59;
+    --link-border-color: var(--blue-bright);
 }
 
 html {
@@ -39,12 +51,38 @@ body {
     flex-direction: column;
 }
 
-/* For sticky nav bar */
+/* SLIDING BOTTOM BORDER FOR NAV */
+
+.link_bottom_border {
+    background-color: var(--link-border-color);
+    height: 0.3rem;
+    width: 100%;
+    position: absolute;
+    z-index: 500;
+    bottom: 0.4rem;
+    left: 0;
+    transition: width .5s, left .5s;
+    border-radius: 0.9rem  0.9rem 0.2rem 0.2rem;
+    pointer-events: none;
+}
+
+.link_span.selected {
+    color: var(--link-border-color);
+}
+
+/* STICKY NAVBAR */
 .sticky {
     position: fixed;
     top: 0;
 }
 
+/* SCROLL BAR */
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+/* PAGE STYLES */
 .main {
     flex: 1 0 auto;
     display: flex;
@@ -56,5 +94,11 @@ body {
 
 
 .page_title {
-    margin: 2rem;
+    margin: 1.3rem;
+    justify-self: flex-start;
+}
+
+
+.page_content {
+    flex: 1 0 auto;
 }

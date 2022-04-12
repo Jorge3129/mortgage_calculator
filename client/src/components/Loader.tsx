@@ -1,12 +1,14 @@
 import React, {FC} from 'react';
 import st from './styles/Loader.module.css'
 
-interface ILoadSpinner {}
+interface ILoader {
+    className: string;
+}
 
-const LoadSpinner: FC<ILoadSpinner> = () => {
+const Loader: FC<ILoader> = ({className}) => {
 
     return (
-        <div className={st.loader_container}>
+        <div className={st.loader_container + " " + className}>
             <div className={st.loader}>
                 <div className={st.loader_inside}>
 
@@ -16,4 +18,4 @@ const LoadSpinner: FC<ILoadSpinner> = () => {
     );
 };
 
-export default LoadSpinner;
+export default Loader;

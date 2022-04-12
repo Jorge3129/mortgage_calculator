@@ -1,38 +1,26 @@
-import {FC, useState, useEffect} from 'react';
+import {FC, useState, } from 'react';
 import st from './Banks.module.css'
-import BankCard from "./BankCard";
+import BankList from "./BankList";
 import DeleteModal from "../../components/DeleteModal";
-import {useDispatch, useSelector} from "react-redux";
-import {bankThunk, selectBanks} from "./banks.reducer";
-import Loader from "../../components/Loader";
+import {useSelector} from "react-redux";
+import {selectBanks} from "./banks.reducer";
+import PageTitle from "../../components/PageTitle";
+import {useFetchBanks} from "./bank.hooks";
 
 type DisplayMode = 'table' | 'cards';
 
 const BankPage: FC = () => {
-    const {loading, banks, userAction} = useSelector(selectBanks);
-    const dispatch = useDispatch();
     const [mode, setMode] = useState<DisplayMode>('table');
+    const {bankAction} = useSelector(selectBanks);
 
-    useEffect(() => {
-        if (banks) return;
-        dispatch(bankThunk(1));
-    }, []);
-
-    const bankList =
-        <ul className={st.card_list}>
-            {banks.map((bank, i) =>
-                <BankCard
-                    key={bank.bankId}
-                    bank={bank}
-                />)}
-        </ul>
+    useFetchBanks();
 
     return (
-        <main className={"main"}>
-            <h2 className={"page_title"}>Your banks: </h2>
-            {loading ? <Loader/> : bankList}
-            {userAction && userAction.type === "delete"
-                ? <DeleteModal item={banks[0]}/> : null}
+        <main className={"main "}>
+            <PageTitle title={"Your banks: "}/>
+            <BankList/>
+            {bankAction?.type === "delete"
+                ? <DeleteModal bank={bankAction?.bank}/> : null}
         </main>
     );
 };

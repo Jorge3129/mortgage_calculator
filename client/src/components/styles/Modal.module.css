@@ -9,12 +9,93 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .modal {
-    width: 30%;
-    height: 60%;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: var(--white);
-    border-radius: 1rem;
+    border-radius: var(--border-radius);
+    padding: 1rem 2rem;
+}
+
+.title {
+    /*padding: 0.3rem 0 1rem;*/
+}
+
+.bank_name {
+    color: var(--blue-card-text-hover);
+    font-weight: 600;
+}
+
+
+.field_list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1em 0;
+}
+
+.field {
+    text-align: left;
+}
+
+.button_list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 0.8em;
+    margin-top: 1em;
+}
+
+.button {
+    margin: 0 1rem;
+}
+
+.button:first-child {
+    margin-left: 0;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .modal {
+        width: 20rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    .button_list {
+        flex-direction: column;
+    }
+
+    .button {
+        margin: 0.5rem 0;
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+
+    .modal {
+        width: 16rem;
+    }
+}
+
+@media screen and (max-width: 300px) {
+
+    .modal {
+        width: 12rem;
+    }
+}
+
+@media screen and (max-width: 200px) {
+
+    .modal {
+        width: 8rem;
+    }
 }

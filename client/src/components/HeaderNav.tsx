@@ -1,24 +1,30 @@
-import React, {FC} from 'react';
+import React, {FC, MouseEvent, useRef} from 'react';
 import st from "./styles/HeaderNav.module.css"
-import {Link} from "react-router-dom";
 import {useSticky} from "./hooks/useSticky";
+import HeaderNavLink from "./HeaderNavLink";
+import {useSlidingBorder} from "./hooks/useSlidingBorder";
 
-const links = [
+export type ILink = { path: string, title: string }
+
+const links: ILink[] = [
     {path: '/', title: 'Home'},
     {path: '/banks', title: 'Banks'},
-    {path: '/mortgage', title: 'Mortgage'},
+    {path: '/calculator', title: 'Calculator'},
+    {path: '/about', title: 'About'},
 ]
 
 const HeaderNav: FC = () => {
 
     const navRef = useSticky();
+    const {borderRef, onLinkClick} = useSlidingBorder();
 
     const linkList = links.map(link =>
-        <li key={link.title} className={st.link_item}>
-            <Link to={link.path} style={{textDecoration: 'none'}}>
-                <span className={st.link_text}>{link.title}</span>
-            </Link>
-        </li>)
+        <HeaderNavLink
+            key={link.title}
+            ref={borderRef}
+            link={link}
+            onLinkClick={onLinkClick}
+        />)
 
     return (
         <nav className={st.container} ref={navRef}>

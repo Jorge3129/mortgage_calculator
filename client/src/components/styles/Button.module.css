@@ -1,0 +1,29 @@
+.button {
+    --button-light-text: #577496;
+    --button-light-text-hover: #2c4c73;
+    border-radius: 0.3rem;
+    padding: 0.5em 1em;
+    font-size: 1.2em;
+    font-weight: 600;
+    outline: none;
+    border: none;
+    color: var(--white);
+    background-color: var(--blue);
+}
+
+.button.light {
+    color: var(--button-light-text);
+    background-color: var(--gray-light);
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: var(--blue-card-text-hover);
+    box-shadow: 0.2em 0.2em 0.3em var(--gray);
+}
+
+.button.light:hover {
+    color: var(--button-light-text-hover);
+    background-color: var(--gray-light-hover);
+    box-shadow: 0.2em 0.2em 0.3em var(--gray);
+}
