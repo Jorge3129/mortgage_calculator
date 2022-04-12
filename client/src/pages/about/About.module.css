@@ -9,12 +9,13 @@
     border-radius: var(--border-radius);
     background-color: var(--blue-light);
     margin: var(--item-margin);
-    padding: 0.6rem 1.3rem 1rem;
+    padding: 0.6rem 1rem 1rem;
     transition: all 0.3s ease;
     width: calc(100% - calc(var(--item-margin) * 2));
 }
 
 .paragraph {
+    font-family: Helvetica, serif;
     text-align: left;
     font-size: 1.1rem;
     font-weight: 400;
@@ -43,6 +44,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     /* COLORS */
     background-color: var(--blue-card-back);
     border: var(--card-border);
@@ -53,6 +55,14 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
+    width: fit-content;
+}
+
+.tech_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .tech_link {
@@ -62,7 +72,9 @@
     align-items: center;
     padding: 0.5rem;
     text-decoration: none;
-    color: var(--black);
+    color: #59708f;
+    font-weight: 500;
+    justify-self: flex-start;
 }
 
 .tech_icon {
@@ -81,13 +93,13 @@
 }
 
 .tech_item:hover .tech_title {
-    color: var(--blue-card-text-hover);
+    color: var(--blue);
     text-decoration: underline;
 }
 
 .link {
     font-weight: 500;
-    color: var(--blue-card-text-hover);
+    color: var(--blue);
     text-decoration: none;
 }
 
@@ -104,6 +116,11 @@
     .tech_stack_list {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tech_stack:last-child {
+        grid-column-start: 1;
+        grid-column-end: 3;
     }
 }
 

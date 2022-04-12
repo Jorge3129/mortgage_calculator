@@ -1,0 +1,18 @@
+.icon_title_container {
+    margin: 2rem;
+}
+
+.icon_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.icon {
+    transform: scale(1.8);
+}
+
+.title {
+    font-size: 1.4rem;
+}

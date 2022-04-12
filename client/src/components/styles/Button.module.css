@@ -9,6 +9,7 @@
     border: none;
     color: var(--white);
     background-color: var(--blue);
+    width: 100%;
 }
 
 .button.light {
@@ -18,8 +19,9 @@
 
 .button:hover {
     cursor: pointer;
-    background-color: var(--blue-card-text-hover);
-    box-shadow: 0.2em 0.2em 0.3em var(--gray);
+    color: var(--gray-light);
+    background-color: #306fcf;
+    box-shadow: 0.2em 0.2em 0.3em var(--gray-dark);
 }
 
 .button.light:hover {

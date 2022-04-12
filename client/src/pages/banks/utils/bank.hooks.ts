@@ -1,5 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
-import {bankThunk, selectBanks, setBankAction} from "./banks.reducer";
+import {selectBanks, setBankAction} from "./banks.reducer";
+import {bankThunk} from "./bank.thunk";
 import {MouseEvent, useEffect} from "react";
 
 export const useFetchBanks = () => {
@@ -31,4 +32,11 @@ export const useBankActions = () => {
     }
 
     return {deleteBank, editBank};
+}
+
+export const useFindBank = () => {
+    const {bankAction, banks} = useSelector(selectBanks);
+    if (!bankAction) return {bank: null, bankAction: null};
+    const bank = banks.find(b => b.bankId === bankAction.bankId);
+    return {bank, bankAction};
 }

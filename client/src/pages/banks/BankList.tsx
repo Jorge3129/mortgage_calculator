@@ -2,7 +2,7 @@ import React from 'react';
 import st from "./Banks.module.css";
 import BankCard from "./BankCard";
 import {useSelector} from "react-redux";
-import {selectBanks} from "./banks.reducer";
+import {selectBanks} from "./utils/banks.reducer";
 import Loader from "../../components/Loader";
 
 const BankList = () => {

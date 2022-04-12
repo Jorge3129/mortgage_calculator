@@ -1,5 +1,5 @@
 import React, {forwardRef, MouseEvent} from 'react';
-import st from "./styles/HeaderNav.module.css";
+import st from "./HeaderNav.module.css";
 import {Link} from "react-router-dom";
 import {ILink} from "./HeaderNav";
 
@@ -14,7 +14,7 @@ const HeaderNavLink = forwardRef<HTMLSpanElement, ILinkProps>(
         const bottomBorder = link.title === "Home" &&
             <span
                 className="link_bottom_border"
-                ref={borderRef || null}
+                ref={borderRef}
                 style={{width: '0'}}
             />
 
@@ -22,14 +22,13 @@ const HeaderNavLink = forwardRef<HTMLSpanElement, ILinkProps>(
             {bottomBorder}
             <li key={link.title} className={st.link_item + " link_item"}>
                 <Link to={link.path} style={{textDecoration: 'none'}}>
-                <span
-                    className={st.link_text + " link_span"}
-                    onClick={onLinkClick}
-                >
-                    {link.title}
-                </span>
+                    <span
+                        className={st.link_text + " link_span"}
+                        onClick={onLinkClick}
+                    >
+                        {link.title}
+                    </span>
                 </Link>
-
             </li>
         </>
     }

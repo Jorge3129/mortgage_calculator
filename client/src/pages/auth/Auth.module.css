@@ -1,0 +1,30 @@
+.container {
+    background-color: var(--blue-card-back);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+}
+
+.form {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: 0.5rem 0.5rem 0.5rem var(--gray);
+    padding: 1rem 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    text-align: center;
+    padding: 0.5rem 0;
+    color: var(--blue-card-border-hover);
+}
+
+.button {
+    width: 100%;
+    font-size: 0.85rem;
+}

@@ -1,7 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {Bank, User} from "../../types/types";
 import {RootState} from "../../redux/rootReducer";
-import API from "./auth.api";
 
 interface UserState {
     user: User | null;

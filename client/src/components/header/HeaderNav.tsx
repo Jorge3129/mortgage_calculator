@@ -1,8 +1,8 @@
 import React, {FC, MouseEvent, useRef} from 'react';
-import st from "./styles/HeaderNav.module.css"
-import {useSticky} from "./hooks/useSticky";
+import st from "./HeaderNav.module.css"
+import {useSticky} from "../hooks/useSticky";
 import HeaderNavLink from "./HeaderNavLink";
-import {useSlidingBorder} from "./hooks/useSlidingBorder";
+import {useSlidingBorder} from "../hooks/useSlidingBorder";
 
 export type ILink = { path: string, title: string }
 

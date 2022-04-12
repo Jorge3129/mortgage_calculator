@@ -19,7 +19,7 @@ export const techs = [{
         items: [
             {title: "Express", logo: express_logo, link: "https://expressjs.com/"},
             {title: "NodeJS", logo: node_logo, link: "https://nodejs.org/en/"},
-            {title: "MySQL", logo: mysql_logo, link: "https://www.mysql.com//"},
+            {title: "MySQL", logo: mysql_logo, link: "https://www.mysql.com/"},
         ]
     },
     {

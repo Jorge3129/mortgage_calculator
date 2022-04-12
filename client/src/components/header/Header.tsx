@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import st from "./styles/Header.module.css"
+import st from "./Header.module.css"
 import HeaderNav from "./HeaderNav";
 import HeaderTitle from "./HeaderTitle";
 

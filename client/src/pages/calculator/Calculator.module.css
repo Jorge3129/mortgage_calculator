@@ -9,12 +9,13 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
+    padding: 0.5rem 1rem 0.8rem;
+    --padding-form: 0.8rem;
 }
 
 .form {
-    width: fit-content;
-    padding: 1rem 2rem;
+    padding: var(--padding-form);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -27,32 +28,63 @@
     align-items: center;
     font-size: 0.9rem;
     width: 100%;
-    padding: 1.2rem 0 0.4rem;
+    margin: 0.6rem 0 0;
+}
+
+.button {
+    width: 100%;
+}
+
+.form_bank_wrap {
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_bank {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.form_bank_message {
+    color: var(--blue-card-text);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.form_bank h3 {
+    text-align: center;
+}
+
+.result_list {
+    padding: var(--padding-form);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 16rem;
 }
 
 .result_wrap {
-    align-self: flex-start;
-    padding: 1rem 2rem;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
+    justify-self: flex-end;
 }
 
 .result_title {
     padding: 0.4rem 0;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.2rem;
+    color: var(--blue-card-text-hover);
 }
 
 .result {
     font-size: 1.4rem;
     padding: 0.3rem;
     min-height: 2.7rem;
-    width: 10rem;
+    width: 100%;
     background-color: var(--white);
-    border: 0.13rem solid var(--blue-card-border);
+    border: 0.13rem solid var(--blue);
     border-radius: 0.3rem;
-    margin: 1rem 0 0;
+    margin: 0.5rem 0 0;
 }
 
 @media screen and (max-width: 1000px) {
@@ -65,6 +97,7 @@
     }
 
     .result_wrap {
+        width: 100%;
         padding-bottom: 0;
     }
 }

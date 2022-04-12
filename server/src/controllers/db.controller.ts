@@ -5,7 +5,7 @@ const createUserQuery = `CREATE TABLE IF NOT EXISTS
     userId INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(50),
     last_name VARCHAR(50),
-    password VARCHAR(50),
+    password VARCHAR(200),
     email VARCHAR(50)
     )`
 

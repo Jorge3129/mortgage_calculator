@@ -1,5 +1,6 @@
 import axios from 'axios';
 import {AuthUser, Guest} from "../../types/types";
+import { LoginState } from './auth.utils';
 
 class AuthAPI {
 
@@ -11,7 +12,7 @@ class AuthAPI {
         }
     }
 
-    static async login(user: AuthUser) {
+    static async login(user: LoginState) {
         try {
             return await axios.post('http://localhost:9001/auth/login', user);
         } catch (e) {

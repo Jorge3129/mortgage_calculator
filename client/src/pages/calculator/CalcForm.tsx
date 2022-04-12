@@ -13,8 +13,8 @@ interface FormProps {
 
 const CalcForm: FC<FormProps> = ({setResult}) => {
 
-    const inputRef = useFocus();
-    const {state, handleLoan, handlePayment, handleBank, banks} = useFormState();
+    //const inputRef = useFocus();
+    const {state, error, handleLoan, handlePayment, handleBank, banks} = useFormState();
 
     const calculate = (e: React.MouseEvent) => {
         e.preventDefault();
@@ -25,11 +25,19 @@ const CalcForm: FC<FormProps> = ({setResult}) => {
 
     return (
         <form className={st.form}>
+            <Select
+                options={["--", ...banks.map(b => b.name)]}
+                handleSelect={handleBank}
+            >
+                Bank:
+            </Select>
             <Input
                 value={state.loan || ""}
                 onChange={handleLoan}
                 type="number"
-                ref={inputRef}
+                required={true}
+                error={error.loan}
+                //ref={inputRef}
             >
                 Initial loan:
             </Input>
@@ -37,17 +45,13 @@ const CalcForm: FC<FormProps> = ({setResult}) => {
                 value={state.payment || ""}
                 onChange={handlePayment}
                 type="number"
+                required={true}
+                error={error.payment}
             >
                 Down payment:
             </Input>
-            <Select
-                options={["--", ...banks.map(b => b.name)]}
-                handleSelect={handleBank}
-            >
-                Bank:
-            </Select>
             <div className={st.button_wrap}>
-                <Button onClick={calculate}>Calculate</Button>
+                <Button className={st.button} onClick={calculate}>Calculate</Button>
             </div>
         </form>
     );

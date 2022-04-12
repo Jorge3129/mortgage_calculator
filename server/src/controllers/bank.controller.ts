@@ -11,6 +11,11 @@ const postBankQuery = `
     VALUES (?,?,?,?,?,?)
 `
 
+const updateBankQuery = `
+    UPDATE Banks SET name = ?, interestRate = ?, maxLoan = ?, minDownPayment = ?, loanTerm = ?
+    WHERE bankId = ?
+`
+
 const deleteBankQuery = `
     DELETE FROM Banks
     WHERE bankId = ?
@@ -40,7 +45,14 @@ class BankController {
     }
 
     static async updateBank(req: Request, res: Response) {
-
+        try {
+            const {name, interestRate, maxLoan, minDownPayment, loanTerm, bankId} = req.body;
+            const result = query(updateBankQuery,
+                [name, interestRate, maxLoan, minDownPayment, loanTerm, bankId])
+            res.json(result);
+        } catch (e) {
+            res.status(404).json({error: e});
+        }
     }
 
     static async deleteBank(req: Request, res: Response) {

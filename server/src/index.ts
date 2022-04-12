@@ -1,6 +1,6 @@
 import 'dotenv/config'
 import bankRouter from "./routes/bank.router";
-import userRouter from "./routes/auth.router";
+import authRouter from "./routes/auth.router";
 import cors from 'cors'
 import express, {Request, Response} from "express";
 import {setupDB} from "./controllers/db.controller";
@@ -13,7 +13,7 @@ app.use(cors({
     origin: "*"
 }))
 app.use('/banks', bankRouter);
-app.use('/auth', userRouter);
+app.use('/auth', authRouter);
 
 app.get("/", (req: Request, res: Response) => {
     res.send("HI!!!");
