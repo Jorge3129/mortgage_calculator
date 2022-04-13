@@ -26,7 +26,7 @@ const HeaderNavLink = forwardRef<HTMLSpanElement, ILinkProps>(
                         className={st.link_text + " link_span"}
                         onClick={onLinkClick}
                     >
-                        {link.title}
+                        <span className={st.link_text_inside}>{link.title}</span>
                     </span>
                 </Link>
             </li>
