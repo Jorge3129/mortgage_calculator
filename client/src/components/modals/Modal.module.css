@@ -10,6 +10,7 @@
     align-items: center;
     z-index: 1000;
     background-color: rgba(0, 0, 0, 0.6);
+    overflow: scroll;
 }
 
 .modal {
@@ -38,7 +39,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 1em 0;
+    padding: 1em 0 0;
 }
 
 .field {
@@ -50,7 +51,6 @@
     flex-direction: row;
     justify-content: stretch;
     font-size: 0.8em;
-    margin-top: 1em;
 }
 
 .button {

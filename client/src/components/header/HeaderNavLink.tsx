@@ -21,7 +21,7 @@ const HeaderNavLink = forwardRef<HTMLSpanElement, ILinkProps>(
         return <>
             {bottomBorder}
             <li key={link.title} className={st.link_item + " link_item"}>
-                <Link to={link.path} style={{textDecoration: 'none'}}>
+                <Link to={link.path} style={{textDecoration: 'none', display: "flex"}}>
                     <span
                         className={st.link_text + " link_span"}
                         onClick={onLinkClick}

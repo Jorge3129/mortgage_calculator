@@ -12,6 +12,7 @@
     flex-direction: row;
     justify-content: space-between;
     /*flex-wrap: wrap;*/
+    height: 3.5rem;
 }
 
 .link_list {
@@ -22,10 +23,12 @@
 }
 
 .link_item {
-    height: min-content;
-    padding: var(--link-padding) 0;
+    height: 100%;
     background-color: var(--black);
     position: relative;
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
 }
 
 .link_text {
@@ -45,8 +48,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 0.6rem;
+    padding: 0.43rem 0.6rem;
     transition: color 0.5s ease;
+    height: fit-content;
 }
 
 .profile_wrap:hover {

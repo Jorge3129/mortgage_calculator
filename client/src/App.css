@@ -104,21 +104,21 @@ body {
 }
 
 @media screen and (max-width: 700px) {
-    /*.link_bottom_border {*/
-    /*    display: none;*/
-    /*}*/
+    .link_bottom_border {
+        display: none;
+    }
 
-    /*.selected::after {*/
-    /*    content: "";*/
-    /*    background-color: var(--link-border-color);*/
-    /*    height: 0.3rem;*/
-    /*    width: 100%;*/
-    /*    position: absolute;*/
-    /*    z-index: 1000;*/
-    /*    bottom: 0.4rem;*/
-    /*    left: 0;*/
-    /*    transition: width .5s, left .5s;*/
-    /*    border-radius: 0.9rem 0.9rem 0.2rem 0.2rem;*/
-    /*    pointer-events: none;*/
-    /*}*/
+    .selected::after {
+        content: "";
+        background-color: var(--link-border-color);
+        height: 0.3rem;
+        width: 100%;
+        position: absolute;
+        z-index: 1000;
+        bottom: 0.4rem;
+        left: 0;
+        transition: width .5s, left .5s;
+        border-radius: 0.9rem 0.9rem 0.2rem 0.2rem;
+        pointer-events: none;
+    }
 }
