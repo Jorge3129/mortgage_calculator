@@ -4,7 +4,7 @@ import FieldList from "./FieldList";
 import {NewBank} from '../../types/types';
 import {bankFields, initState} from "./modal.utils";
 import BankApi from "../../pages/banks/utils/bank.api";
-import {newToBank} from "../../pages/banks/utils/bank.utils";
+import {newToBank, isEmpty} from "../../pages/banks/utils/bank.utils";
 import {createBank} from "../../pages/banks/utils/banks.reducer";
 import {useAuthContext} from '../../pages/auth/AuthContext';
 
@@ -14,6 +14,10 @@ const CreateModal = () => {
     const {user} = useAuthContext()
 
     const onConfirm = async (dispatch: Dispatch<any>, payload: NewBank) => {
+        if (isEmpty(payload)) {
+            alert("Please enter correct data");
+            return;
+        }
         const res = await BankApi.postBank({...newToBank(payload, 0), userId: user?.userId});
         if (!res) return;
         dispatch(createBank(newToBank(payload, res.data.insertId)));

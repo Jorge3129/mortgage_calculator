@@ -18,7 +18,9 @@ const Login = () => {
             const user = res.data.user;
             setUser(user);
             localStorage.setItem('user', user.userId + '');
+            return;
         }
+        alert(res.data.message);
     };
 
     return (

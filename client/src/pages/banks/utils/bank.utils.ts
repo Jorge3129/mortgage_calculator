@@ -25,3 +25,7 @@ export const newToBank = (newBank: NewBank, bankId: number): Bank => {
     });
     return bank as Bank;
 }
+
+export const isEmpty = (obj: Object): boolean => {
+    return Object.values(obj).includes("");
+}

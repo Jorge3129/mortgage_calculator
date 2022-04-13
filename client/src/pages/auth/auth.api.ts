@@ -14,18 +14,22 @@ class AuthAPI {
     }
 
     static async login(user: LoginState) {
-        try {
-            return await axios.post(SERVER_URL + '/auth/login', user);
-        } catch (e) {
-            return Promise.reject(e);
-        }
+        return axios.post(SERVER_URL + '/auth/login', user)
+            .then(response => {
+                return response
+            })
+            .catch(error => {
+                console.log(error.response)
+                return error.response;
+            })
+
     }
 
     static async guestLogin(user: Guest) {
         try {
             return await axios.post(SERVER_URL + '/auth/guest', user);
         } catch (e) {
-            return Promise.reject(e);
+            return Promise.resolve({error: e});
         }
     }
 

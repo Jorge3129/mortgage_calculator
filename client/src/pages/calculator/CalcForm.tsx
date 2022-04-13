@@ -6,6 +6,7 @@ import {useFocus} from "../../components/hooks/useFocus";
 import Select from "../../components/Select";
 import {calculatePayment, money} from "../../utils/finance.utils";
 import {useFormState} from "./hooks";
+import {isEmpty} from "../banks/utils/bank.utils";
 
 interface FormProps {
     setResult: Dispatch<SetStateAction<string>>;
@@ -19,8 +20,12 @@ const CalcForm: FC<FormProps> = ({setResult}) => {
     const calculate = (e: React.MouseEvent) => {
         e.preventDefault();
         if (!state.bank) return;
+        if (isEmpty(state)) {
+            alert("Please enter correct data");
+            return;
+        }
         const payment = Math.round(calculatePayment(parseInt(state.loan), state.bank));
-        setResult(money(payment, " $"))
+        setResult(isNaN(payment) ? "" : money(payment, " $"))
     }
 
     return (
