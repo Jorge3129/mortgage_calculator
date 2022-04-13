@@ -1,4 +1,3 @@
-import 'dotenv/config'
 import bankRouter from "./routes/bank.router";
 import authRouter from "./routes/auth.router";
 import cors from 'cors'
@@ -11,7 +10,8 @@ const PORT = process.env.PORT || 9001;
 app.use(express.json());
 app.use(cors({
     origin: "*"
-}))
+}));
+
 app.use('/banks', bankRouter);
 app.use('/auth', authRouter);
 

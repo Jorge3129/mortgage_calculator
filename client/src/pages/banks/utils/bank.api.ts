@@ -1,21 +1,38 @@
 import axios, {AxiosResponse} from 'axios';
 import {Bank} from "../../../types/types";
+import {SERVER_URL} from "../../../config";
 
 class BankAPI {
     static async getBanks(userId: number): Promise<AxiosResponse<Bank[]>> {
-        return await axios.get<Bank[]>('http://localhost:9001/banks/' + userId);
+        try {
+            return await axios.get<Bank[]>(SERVER_URL + '/banks/' + userId);
+        } catch (e) {
+            return Promise.reject(e);
+        }
     }
 
     static async postBank(bank: Bank) {
-        return await axios.post('http://localhost:9001/banks/', bank);
+        try {
+            return await axios.post(SERVER_URL + '/banks/', bank);
+        } catch (e) {
+            return Promise.reject(e);
+        }
     }
 
     static async updateBank(bank: Bank) {
-        return await axios.patch('http://localhost:9001/banks/', bank);
+        try {
+            return await axios.patch(SERVER_URL + '/banks/', bank);
+        } catch (e) {
+            return Promise.reject(e);
+        }
     }
 
     static async deleteBank(bankId: number) {
-        return await axios.delete('http://localhost:9001/banks/' + bankId);
+        try {
+            return await axios.delete(SERVER_URL + '/banks/' + bankId);
+        } catch (e) {
+            return Promise.reject(e);
+        }
     }
 }
 

@@ -16,7 +16,7 @@ const App: FC = () => {
 
     const [user, setUser] = useState<PartialUser>();
 
-    useLogin(setUser);
+    useLogin(setUser)
 
     return (
         <Router>
