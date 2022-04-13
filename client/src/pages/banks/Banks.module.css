@@ -19,7 +19,7 @@
 }
 
 .card {
-    width: fit-content;
+    width: 20rem;
     padding: 0.6rem 1.3rem 1rem;
     margin: 0.5rem  0.8rem;
     text-align: left;
@@ -46,6 +46,8 @@
     font-weight: 700;
     color: var(--blue-card-text-hover);
     padding: 0.2rem 0;
+    word-break: break-word;
+    max-width: 80%;
 }
 
 /* USER OPTIONS ON HOVER */
@@ -108,10 +110,24 @@
     color: var(--blue-card-text-hover);
 }
 
+.create_button_wrap {
+    position: fixed;
+    bottom: 5rem;
+    right: 5rem;
+    font-size: 2.4rem;
+    font-weight: 300;
+    border-radius: 50%;
+    transition: all 0.4s ease;
+}
+
 @media screen and (max-width: 1000px) {
     .card_list {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .create_button_wrap {
+        right: 3rem;
     }
 }
 
@@ -119,5 +135,9 @@
     .card_list {
         display: flex;
         flex-direction: column;
+    }
+
+    .create_button_wrap {
+        right: 3rem;
     }
 }

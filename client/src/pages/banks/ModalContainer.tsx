@@ -7,13 +7,14 @@ import EditModal from "../../components/modals/EditModal";
 const ModalContainer = () => {
 
     const {bank, bankAction} = useFindBank();
-    if (!bank) return null;
+
+    if (!bankAction) return null;
 
     switch (bankAction.type) {
         case "delete":
-            return <DeleteModal bank={bank}/>;
+            return bank ? <DeleteModal bank={bank}/> : null;
         case "edit":
-            return <EditModal bank={bank}/>
+            return bank ? <EditModal bank={bank}/> : null;
         case "create":
             return <CreateModal/>
         default:

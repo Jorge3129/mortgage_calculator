@@ -1,8 +1,10 @@
-import React, {FC, MouseEvent, useRef} from 'react';
+import React, {FC} from 'react';
 import st from "./HeaderNav.module.css"
 import {useSticky} from "../hooks/useSticky";
 import HeaderNavLink from "./HeaderNavLink";
 import {useSlidingBorder} from "../hooks/useSlidingBorder";
+import {useLogout} from "../hooks/useLogout";
+import Logout from "./Logout";
 
 export type ILink = { path: string, title: string }
 
@@ -31,6 +33,7 @@ const HeaderNav: FC = () => {
             <ul className={st.link_list}>
                 {linkList}
             </ul>
+            <Logout/>
         </nav>
     );
 };

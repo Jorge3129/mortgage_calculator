@@ -1,18 +1,22 @@
 import React from 'react';
 import PageTitle from "../../components/PageTitle"
+import about from "../about/About.module.css"
 
 const HomePage = () => {
 
     return (
         <div className={"main"}>
             <PageTitle title={"Home"}/>
-            {new Array(9)
-                .fill(0)
-                .map((el, ix) =>
-                    <div key={ix} style={{padding: '1rem 3rem', fontSize: 'bold'}}>
-                        {ix}
-                    </div>)
-            }
+            <div className={"page_content"}>
+                <div className={about.paragraph_container}>
+                    <p className={about.paragraph}>
+                        Welcome to The Banker!
+                    </p>
+                    <p className={about.paragraph}>
+                        Here you can create banks an calculate your payment plan
+                    </p>
+                </div>
+            </div>
         </div>
     );
 };

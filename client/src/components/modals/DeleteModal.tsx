@@ -1,13 +1,15 @@
-import React, {FC} from 'react';
+import React, {Dispatch, FC} from 'react';
 import st from './Modal.module.css'
 import Modal, {IBankModal} from "./Modal";
 import {deleteBank} from "../../pages/banks/utils/banks.reducer";
-import API from "../../pages/banks/utils/bank.api";
+import BankApi from "../../pages/banks/utils/bank.api";
 
 const DeleteModal: FC<IBankModal> = ({bank}) => {
 
-    if (!bank) return null;
-    const onConfirm = {action: deleteBank, request: API.deleteBank};
+    const onConfirm = async (dispatch: Dispatch<any>, payload: number) => {
+        dispatch(deleteBank(payload));
+        await BankApi.deleteBank(payload);
+    }
 
     return (
         <Modal title="Delete bank" onConfirm={onConfirm} payload={bank.bankId}>

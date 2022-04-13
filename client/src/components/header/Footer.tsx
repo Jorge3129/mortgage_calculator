@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {FC} from 'react';
 import st from './Footer.module.css'
 
-const Footer = () => {
+interface Props {
+    className?: string;
+}
+
+const Footer:FC<Props> = ({className}) => {
     return (
-        <footer className={st.footer}>
+        <footer className={st.footer + " " + (className || "")}>
             &copy; 2022 Heorhii Sanchenko
         </footer>
     );

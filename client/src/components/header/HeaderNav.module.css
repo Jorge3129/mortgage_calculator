@@ -3,18 +3,22 @@
     width: 100%;
     background-color: var(--black);
     justify-self: flex-end;
-    overflow: hidden;
+    overflow: scroll;
     max-height: fit-content;
     /*box-shadow: 0 -0.6rem 1.5rem var(--gray-blue);*/
     --link-padding: 0.9rem;
     z-index: 100;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /*flex-wrap: wrap;*/
 }
 
 .link_list {
     width: fit-content;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    /*flex-wrap: wrap;*/
 }
 
 .link_item {
@@ -27,12 +31,44 @@
 .link_text {
     color: var(--white);
     text-decoration: none;
-    padding: var(--link-padding) 2rem;
+    padding: var(--link-padding) 1.4rem;
     font-size: 1.2rem;
+    transition: all 0.3s ease;
 }
 
-.link_item:hover {
+.link_text:hover {
     cursor: pointer;
     background-color: var(--link-hover);
 }
 
+.profile_wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0.6rem;
+    transition: color 0.5s ease;
+}
+
+.profile_wrap:hover {
+    cursor: pointer;
+    background-color: var(--link-hover);
+    color: var(--blue-bright);
+}
+
+.profile {
+    background-color: var(--gray);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.6rem 0.7rem;
+    font-size: 1.2rem;
+}
+
+.logout:hover {
+    color: var(--blue-bright);
+}
+
+@media screen and (max-width: 700px) {
+
+}

@@ -24,6 +24,7 @@ export type Bank = {
     maxLoan: number;
     minDownPayment: number;
     loanTerm: number;
+    userId?: number;
 } & KeyObject
 
 type StringOnly<T> = {

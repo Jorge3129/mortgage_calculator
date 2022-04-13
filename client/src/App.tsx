@@ -10,20 +10,19 @@ import Page from "./pages/calculator/Page";
 import AboutPage from "./pages/about/AboutPage";
 import {PartialUser} from "./types/types";
 import {AuthContext} from "./pages/auth/AuthContext";
+import {useLogin} from "./components/hooks/useLogout";
 
 const App: FC = () => {
 
     const [user, setUser] = useState<PartialUser>();
 
-    useEffect(() => {
-        console.log(user)
-    }, [user])
+    useLogin(setUser);
 
     return (
         <Router>
             <AuthContext.Provider value={{user, setUser}}>
                 <div className="App">
-                    {user ?
+                    {user || localStorage.getItem('user') ?
                         <>
                             <Header/>
                             <Routes>

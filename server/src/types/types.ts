@@ -20,4 +20,5 @@ export interface Bank {
     maxLoan: number;
     minDownPayment: number;
     loanTerm: number;
+    userId: number;
 }

@@ -1,16 +1,21 @@
 import {useDispatch, useSelector} from "react-redux";
-import {selectBanks, setBankAction} from "./banks.reducer";
+import {selectBanks, setBankAction, setUserId} from "./banks.reducer";
 import {bankThunk} from "./bank.thunk";
 import {MouseEvent, useEffect} from "react";
+import {useAuthContext} from "../../auth/AuthContext";
 
 export const useFetchBanks = () => {
-    const {banks} = useSelector(selectBanks);
+    const {banks, userId} = useSelector(selectBanks);
     const dispatch = useDispatch();
+    const {user} = useAuthContext();
 
     useEffect(() => {
-        if (banks.length) return;
-        dispatch(bankThunk(1));
-    }, []);
+        if (!user) return;
+        if (banks.length && userId === user.userId) return; // avoid reload
+        const id = user.userId
+        dispatch(bankThunk(id));
+        dispatch(setUserId(id))
+    }, [user]);
 }
 
 export const useBankActions = () => {
@@ -31,7 +36,11 @@ export const useBankActions = () => {
         dispatchAction(e, 'edit');
     }
 
-    return {deleteBank, editBank};
+    const createBank = (e: MouseEvent<HTMLElement>) => {
+        dispatch(setBankAction({type: "create", bankId: 0}));
+    }
+
+    return {deleteBank, editBank, createBank};
 }
 
 export const useFindBank = () => {

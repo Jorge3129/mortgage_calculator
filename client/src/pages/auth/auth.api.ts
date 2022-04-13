@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {AuthUser, Guest} from "../../types/types";
-import { LoginState } from './auth.utils';
+import {LoginState} from './auth.utils';
 
 class AuthAPI {
 
@@ -23,6 +23,15 @@ class AuthAPI {
     static async guestLogin(user: Guest) {
         try {
             return await axios.post('http://localhost:9001/auth/guest', user);
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    static async getUserById(userId: number) {
+        try {
+            if (isNaN(userId)) return;
+            return await axios.get('http://localhost:9001/auth/users/' + userId);
         } catch (e) {
             console.log(e)
         }

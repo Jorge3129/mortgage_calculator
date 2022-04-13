@@ -62,7 +62,7 @@ body {
     bottom: 0.4rem;
     left: 0;
     transition: width .5s, left .5s;
-    border-radius: 0.9rem  0.9rem 0.2rem 0.2rem;
+    border-radius: 0.9rem 0.9rem 0.2rem 0.2rem;
     pointer-events: none;
 }
 
@@ -79,6 +79,7 @@ body {
 /* SCROLL BAR */
 ::-webkit-scrollbar {
     width: 0;
+    height: 0;
 }
 
 /* PAGE STYLES */
@@ -100,4 +101,24 @@ body {
 
 .page_content {
     flex: 1 0 auto;
+}
+
+@media screen and (max-width: 700px) {
+    /*.link_bottom_border {*/
+    /*    display: none;*/
+    /*}*/
+
+    /*.selected::after {*/
+    /*    content: "";*/
+    /*    background-color: var(--link-border-color);*/
+    /*    height: 0.3rem;*/
+    /*    width: 100%;*/
+    /*    position: absolute;*/
+    /*    z-index: 1000;*/
+    /*    bottom: 0.4rem;*/
+    /*    left: 0;*/
+    /*    transition: width .5s, left .5s;*/
+    /*    border-radius: 0.9rem 0.9rem 0.2rem 0.2rem;*/
+    /*    pointer-events: none;*/
+    /*}*/
 }

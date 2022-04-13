@@ -1,14 +1,13 @@
-import React, {FC, MouseEvent} from 'react';
+import React, {Dispatch, FC, MouseEvent} from 'react';
 import st from "./Modal.module.css";
 import Button from "../Button";
-import {Bank, NewBank} from "../../types/types";
+import {Bank} from "../../types/types";
 import {useDispatch} from "react-redux";
 import {setBankAction} from "../../pages/banks/utils/banks.reducer";
-import {ActionCreatorWithPayload} from "@reduxjs/toolkit";
 
 interface IModal {
     title: string;
-    onConfirm: { action: ActionCreatorWithPayload<any>, request: Function};
+    onConfirm: (dispatch: Dispatch<any>, payload: any) => void;
     payload?: any
 }
 
@@ -33,8 +32,7 @@ const Modal: FC<IModal> = (
 
     const confirm = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        dispatch(onConfirm.action(payload));
-        onConfirm.request(payload);
+        onConfirm(dispatch, payload)
     }
 
     return (

@@ -4,7 +4,10 @@ import {Bank} from "../../../types/types";
 class BankAPI {
     static async getBanks(userId: number): Promise<AxiosResponse<Bank[]>> {
         return await axios.get<Bank[]>('http://localhost:9001/banks/' + userId);
+    }
 
+    static async postBank(bank: Bank) {
+        return await axios.post('http://localhost:9001/banks/', bank);
     }
 
     static async updateBank(bank: Bank) {

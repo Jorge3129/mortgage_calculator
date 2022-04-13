@@ -1,4 +1,4 @@
-import React, {MouseEvent, useEffect, useState} from 'react';
+import React, {MouseEvent, useState} from 'react';
 import st from "./Auth.module.css";
 import FieldList from "../../components/modals/FieldList";
 import {loginFields, loginState, LoginState} from "./auth.utils";
@@ -14,8 +14,11 @@ const Login = () => {
     const onClick = async (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         const res = await AuthAPI.login(state);
-        console.log(res?.data)
-        if (res?.data.success && setUser) setUser(res.data.user);
+        if (res?.data.success && setUser) {
+            const user = res.data.user;
+            setUser(user);
+            localStorage.setItem('user', user.userId + '');
+        }
     };
 
     return (

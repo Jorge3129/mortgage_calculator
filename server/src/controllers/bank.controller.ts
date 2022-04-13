@@ -36,8 +36,9 @@ class BankController {
     static async postBank(req: Request, res: Response) {
         try {
             const {name, interestRate, maxLoan, minDownPayment, loanTerm, userId} = req.body;
-            const result = query(postBankQuery,
+            const result = await query(postBankQuery,
                 [name, interestRate, maxLoan, minDownPayment, loanTerm, userId])
+            console.log(result);
             res.json(result);
         } catch (e) {
             res.status(404).json({error: e});

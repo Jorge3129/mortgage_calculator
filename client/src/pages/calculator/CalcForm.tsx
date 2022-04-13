@@ -51,7 +51,7 @@ const CalcForm: FC<FormProps> = ({setResult}) => {
                 Down payment:
             </Input>
             <div className={st.button_wrap}>
-                <Button className={st.button} onClick={calculate}>Calculate</Button>
+                <Button parentClass={st.button} onClick={calculate}>Calculate</Button>
             </div>
         </form>
     );

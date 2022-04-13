@@ -9,7 +9,7 @@
     border-radius: var(--border-radius);
     background-color: var(--blue-light);
     margin: var(--item-margin);
-    padding: 0.6rem 1rem 1rem;
+    padding: 0.5rem 0.6rem 1rem;
     transition: all 0.3s ease;
     width: calc(100% - calc(var(--item-margin) * 2));
 }
@@ -110,7 +110,7 @@
 @media screen and (max-width: 1000px) {
 
     .paragraph_container {
-        width: 32rem;
+        width: 35rem;
     }
 
     .tech_stack_list {
@@ -127,7 +127,7 @@
 @media screen and (max-width: 700px) {
 
     .paragraph_container {
-        width: 22rem;
+        width: 26rem;
     }
 
     .tech_stack_list {
@@ -138,13 +138,13 @@
 
 @media screen and (max-width: 500px) {
     .paragraph_container {
-        width: 16rem;
+        width: 20rem;
     }
 }
 
 @media screen and (max-width: 300px) {
     .paragraph_container {
-        width: 12rem;
+        width: 14rem;
         word-wrap: break-word;
     }
 }

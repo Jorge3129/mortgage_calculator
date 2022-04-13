@@ -1,14 +1,13 @@
-import express, {Request, Response} from "express";
-import {connection, db, query} from "../config/connection";
+import {Request, Response} from "express";
+import {query} from "../config/connection";
 import {AuthUser} from "../types/types";
 
 const bcrypt = require("bcrypt");
 
-const getUserById = `
+const getUserByIdQuery = `
     SELECT *
     FROM Users
-    WHERE first_name = ?
-    AND last_name = ?
+    WHERE userId = ?
 `
 
 const getUserByEmail = `
@@ -20,7 +19,8 @@ const getUserByEmail = `
 const getUserByName = `
     SELECT *
     FROM Users
-    WHERE userId = ?
+    WHERE first_name = ?
+    AND last_name = ?
 `
 
 const postUserQuery = `
@@ -41,6 +41,19 @@ class AuthController {
     static async findUserByEmail({email}: AuthUser): Promise<AuthUser[] | null> {
         try {
             return await query(getUserByEmail, [email]);
+        } catch (e: any) {
+            return null
+        }
+    }
+
+    static async getUserById(req: Request, res: Response) {
+        try {
+            const {userId} = req.params;
+            const user = await query(getUserByIdQuery, [userId]);
+            if (!user[0]) return res.status(403).json({message: "User not found"});
+
+            const partUser = {...user[0], password: undefined}
+            res.status(200).json({user: partUser, success: true});
         } catch (e: any) {
             return null
         }
@@ -79,12 +92,6 @@ class AuthController {
 
         const partUser = {...user, password: undefined}
         res.json({success: true, user: partUser});
-
-        // const user: IUser | undefined = users
-        //     .find(u => u.username === username
-        //         && u.password === password);
-        // if (user) res.json({success: true, username});
-        // else res.status(403).json({success: false});
     }
 }
 
