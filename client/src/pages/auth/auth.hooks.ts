@@ -1,9 +1,7 @@
-import {useAuthContext} from "../../pages/auth/AuthContext";
+import {useAuthContext} from "./AuthContext";
 import {Dispatch, MouseEvent, SetStateAction, useEffect} from "react";
-import AuthAPI from "../../pages/auth/auth.api";
+import AuthAPI from "./auth.api";
 import {PartialUser} from "../../types/types";
-import {useDispatch} from "react-redux";
-import {setUserId} from "../../pages/banks/utils/banks.reducer";
 
 export const useLogout = () => {
     const {setUser} = useAuthContext();
@@ -14,7 +12,7 @@ export const useLogout = () => {
     };
 }
 
-export const useLogin = (setUser: Dispatch<SetStateAction<PartialUser | undefined>>) => {
+export const useFetchUser = (setUser: Dispatch<SetStateAction<PartialUser | undefined>>) => {
 
     const getUser = async () => {
         const userId = localStorage.getItem('user');

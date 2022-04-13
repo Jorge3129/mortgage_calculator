@@ -10,13 +10,13 @@ import Page from "./pages/calculator/Page";
 import AboutPage from "./pages/about/AboutPage";
 import {PartialUser} from "./types/types";
 import {AuthContext} from "./pages/auth/AuthContext";
-import {useLogin} from "./components/hooks/useLogout";
+import {useFetchUser} from "./pages/auth/auth.hooks";
 
 const App: FC = () => {
 
     const [user, setUser] = useState<PartialUser>();
 
-    useLogin(setUser)
+    useFetchUser(setUser)
 
     return (
         <Router>

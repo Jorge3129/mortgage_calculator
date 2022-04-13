@@ -1,6 +1,6 @@
 import React, {MouseEvent} from 'react';
 import st from "./HeaderNav.module.css";
-import {useLogout} from "../hooks/useLogout";
+import {useLogout} from "../../pages/auth/auth.hooks";
 
 const Logout = () => {
 
