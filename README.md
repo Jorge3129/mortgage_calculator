@@ -13,7 +13,9 @@ This is a test project where you can create/edit/delete banks and apply the para
 ```
 
 ### Live demo: 
-[https://the-banker-xd.herokuapp.com](https://the-banker-xd.herokuapp.com/)
+[https://the-banker-xd.herokuapp.com](https://the-banker-xd.herokuapp.com/)  
+#### Login credentials: 
+{email: "johndoe@gmail.com", password: "password"}
 
 ### Tech stack: 
 TypeScript, React, Redux Toolkit, CSS Modules
