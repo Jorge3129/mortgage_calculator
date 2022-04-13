@@ -29,12 +29,14 @@ const HeaderNav: FC = () => {
         />)
 
     return (
-        <nav className={st.container} ref={navRef}>
-            <ul className={st.link_list}>
-                {linkList}
-            </ul>
-            <Logout/>
-        </nav>
+        <div className={st.dummy}>
+            <nav className={st.container} ref={navRef}>
+                <ul className={st.link_list}>
+                    {linkList}
+                </ul>
+                <Logout/>
+            </nav>
+        </div>
     );
 };
 
