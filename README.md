@@ -4,7 +4,7 @@ This is a test project where you can create/edit/delete banks and apply the para
 
 ## Client
 
-###Start locally:
+### Start locally:
 
 ```
     cd client
@@ -12,15 +12,15 @@ This is a test project where you can create/edit/delete banks and apply the para
     npm start
 ```
 
-###Live demo: 
+### Live demo: 
 [https://the-banker-xd.herokuapp.com](https://the-banker-xd.herokuapp.com/)
 
-###Tech stack: 
+### Tech stack: 
 TypeScript, React, Redux Toolkit, CSS Modules
 
 ## Server
 
-###Start locally:
+### Start locally:
 
 ```
     cd server
@@ -28,10 +28,10 @@ TypeScript, React, Redux Toolkit, CSS Modules
     npm run dev
 ```
 
-###Live: 
+### Live: 
 [https://the-banker-server.herokuapp.com](https://the-banker-server.herokuapp.com/)
 
-###Routes:
+### Routes:
 
 GET /auth/users/:userId  
 POST /auth/register  
@@ -42,6 +42,6 @@ POST /banks
 PATCH /banks  
 DELETE /banks/:bankId  
 
-###Tech stack: 
+### Tech stack: 
 TypeScript, Express, MySQL
 
