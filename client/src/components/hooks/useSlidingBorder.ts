@@ -18,9 +18,11 @@ export const useSlidingBorder = () => {
      * @param target - the clicked HTMLLIElement containing link
      */
     const styleBottomBorder = (border: HTMLElement, target: HTMLElement) => {
-        const {top, left, width, height} = target.getBoundingClientRect();
+        const {width} = target.getBoundingClientRect();
+        const first = document.querySelector(".link_item");
+        if (!first) return;
+        const left = target.getBoundingClientRect().left - first.getBoundingClientRect().left;
         border.style.left = left + "px";
-        // border.style.top = "calc(" + (top + height) + "px - 0.5rem) ";
         border.style.width = width + "px";
     }
 
