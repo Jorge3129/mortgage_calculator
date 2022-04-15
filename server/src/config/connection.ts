@@ -2,15 +2,6 @@ import mysql from "mysql";
 
 const {makeDb} = require('mysql-async-simple');
 
-const str = "";
-
-// export const connection = mysql.createPool({
-//     host: 'localhost',
-//     user: 'root',
-//     password: process.env.DB,
-//     database: 'mortgage'
-// });
-
 export const connection = mysql.createPool({
     host: "",
     user: "",

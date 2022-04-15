@@ -3,7 +3,6 @@ import st from "./HeaderNav.module.css"
 import {useSticky} from "../hooks/useSticky";
 import HeaderNavLink from "./HeaderNavLink";
 import {useSlidingBorder} from "../hooks/useSlidingBorder";
-import {useLogout} from "../../pages/auth/auth.hooks";
 import Logout from "./Logout";
 
 export type ILink = { path: string, title: string }

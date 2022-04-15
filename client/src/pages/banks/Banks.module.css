@@ -32,6 +32,7 @@
     background-color: var(--blue-card-back);
     border: var(--card-border);
     border-radius: 1rem;
+    transition: all 0.3s ease;
 }
 
 .card:hover {
@@ -88,6 +89,7 @@
 .field {
     padding: 0.2rem 0.4rem;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .key,
@@ -110,7 +112,7 @@
     color: var(--blue-card-text-hover);
 }
 
-.create_button_wrap {
+.button {
     position: fixed;
     bottom: 5rem;
     right: 5rem;
@@ -118,7 +120,27 @@
     font-weight: 300;
     border-radius: 50%;
     transition: all 0.4s ease;
+    outline: none;
+    border: none;
+    color: var(--white);
+    background-color: var(--blue);
+    height: 3.5rem;
+    width: 3.5rem;
+    display: grid;
+    place-content: center;
 }
+
+.button_icon {
+    transform: scale(1);
+}
+
+.button:hover {
+    cursor: pointer;
+    color: var(--gray-light);
+    background-color: #306fcf;
+    box-shadow: 0.2em 0.2em 0.3em var(--gray-dark);
+}
+
 
 @media screen and (max-width: 1000px) {
     .card_list {
@@ -126,8 +148,8 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .create_button_wrap {
-        right: 3rem;
+    .button {
+        right: 2.5rem;
     }
 }
 
@@ -137,7 +159,27 @@
         flex-direction: column;
     }
 
-    .create_button_wrap {
-        right: 3rem;
+    .button {
+        right: 1.5rem;
+        bottom: 2rem;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .card {
+        width: 19rem;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .card {
+        width: 15rem;
+    }
+}
+
+@media screen and (max-width: 230px) {
+    .card {
+        width: 11rem;
     }
 }

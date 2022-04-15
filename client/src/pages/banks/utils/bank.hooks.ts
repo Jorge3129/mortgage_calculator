@@ -3,6 +3,7 @@ import {selectBanks, setBankAction, setUserId} from "./banks.reducer";
 import {bankThunk} from "./bank.thunk";
 import {MouseEvent, useEffect} from "react";
 import {useAuthContext} from "../../auth/AuthContext";
+import {Bank} from "../../../types/types";
 
 export const useFetchBanks = () => {
     const {banks, userId} = useSelector(selectBanks);
@@ -18,29 +19,18 @@ export const useFetchBanks = () => {
     }, [user]);
 }
 
-export const useBankActions = () => {
+export const useBankActions = ({bankId}: Bank) => {
     const dispatch = useDispatch();
 
-    const dispatchAction = (e: MouseEvent<HTMLLIElement>, type: 'delete' | 'edit') => {
-        const card = e.currentTarget.closest('.bank_card');
-        if (!card?.id) return null;
-        const bankId = parseInt(card.id.replace('bank', ''));
-        dispatch(setBankAction({type, bankId}));
+    const onDeleteBank = (e: MouseEvent<HTMLLIElement>) => {
+        dispatch(setBankAction({type: "delete", bankId}));
     }
 
-    const deleteBank = (e: MouseEvent<HTMLLIElement>) => {
-        dispatchAction(e, 'delete');
+    const onEditBank = (e: MouseEvent<HTMLLIElement>) => {
+        dispatch(setBankAction({type: "edit", bankId}));
     }
 
-    const editBank = (e: MouseEvent<HTMLLIElement>) => {
-        dispatchAction(e, 'edit');
-    }
-
-    const createBank = (e: MouseEvent<HTMLElement>) => {
-        dispatch(setBankAction({type: "create", bankId: 0}));
-    }
-
-    return {deleteBank, editBank, createBank};
+    return {onDeleteBank, onEditBank};
 }
 
 export const useFindBank = () => {

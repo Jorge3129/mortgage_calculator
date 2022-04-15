@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FC, PropsWithChildren} from 'react';
+import React, {ChangeEvent, FC} from 'react';
 import st from "./styles/Input.module.css";
 
 interface Props {

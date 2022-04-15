@@ -14,7 +14,7 @@ interface IBankCard {
 const BankCard: FC<IBankCard> = ({bank, className}) => {
     const {bankId, name} = bank;
     const fields = getFields(bank);
-    const {deleteBank, editBank} = useBankActions();
+    const {onDeleteBank, onEditBank} = useBankActions(bank);
 
     const mobile = isMobile() ? " " + st.mobile : "";
 
@@ -32,10 +32,10 @@ const BankCard: FC<IBankCard> = ({bank, className}) => {
                 }
             </ul>
             <ul className={st.options}>
-                <li className={st.option} onClick={editBank}>
+                <li className={st.option} onClick={onEditBank}>
                     <i className="fa-solid fa-pen"/>
                 </li>
-                <li className={st.option} onClick={deleteBank}>
+                <li className={st.option} onClick={onDeleteBank}>
                     <i className="fa-solid fa-trash-can"/>
                 </li>
             </ul>
